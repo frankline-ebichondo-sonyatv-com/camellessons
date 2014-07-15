@@ -17,6 +17,9 @@ Compiling
 Running
 -------
 1. Camel plays nic with activeMQ, so this example has been made to run in activeMQ.
-2. Startup activeMQ with the connectors tcp://localhost:61616
-3. Go to the camellessons folder and run
+2. Insert ftp credentials in the properties file located at <>.
+3. Add all files to be accessed in the ftp location.
+4. Startup activeMQ with the connectors tcp://localhost:61616
+5. Go to the camellessons folder and run
    mvn exec:java -Dexec.mainClass="com.sonyatv.camel.App"
+6. You can check your queue via the activemq web console.
