@@ -11,9 +11,9 @@ public class SimpleRouteBuilder extends RouteBuilder{
 	public void configure() throws Exception {
 		// TODO Auto-generated method stub
 		Properties prop = new Properties();
-		InputStream is = SimpleRouteBuilder.class.getResourceAsStream("config.properties");
+		InputStream is = SimpleRouteBuilder.class.getClassLoader().getResourceAsStream("config.properties");
 		prop.load(is);
-		from("ftp://" + prop.getProperty("host") + "/ftp?username=" + prop.getProperty("username") + "&password=" + prop.getProperty("password")).to("jms:queue:simpleTopic");
+		from("ftp://192.168.38.144/ftp?username=frank&password=password").to("jms:queue:simpleTopic");
 	}
 
 }
