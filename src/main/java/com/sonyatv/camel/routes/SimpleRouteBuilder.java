@@ -5,6 +5,8 @@ import java.util.Properties;
 
 import org.apache.camel.builder.RouteBuilder;
 
+import com.sonyatv.camel.processors.ConsoleLogProcessor;
+
 public class SimpleRouteBuilder extends RouteBuilder{
 
 	@Override
@@ -13,7 +15,9 @@ public class SimpleRouteBuilder extends RouteBuilder{
 		Properties prop = new Properties();
 		InputStream is = SimpleRouteBuilder.class.getClassLoader().getResourceAsStream("config.properties");
 		prop.load(is);
-		from("ftp://192.168.38.144/ftp?username=frank&password=password").to("jms:queue:simpleTopic");
+		from("ftp://" + prop.getProperty("host") + "/ftp?username=" + prop.getProperty("username") + "&password=" + prop.getProperty("password"))
+		.process(new ConsoleLogProcessor())
+		.to("jms:queue:simpleTopic");
 	}
 
 }
