@@ -17,7 +17,7 @@ Compiling
 Running
 -------
 1. Camel plays nic with activeMQ, so this example has been made to run in activeMQ.
-2. Insert ftp credentials in the properties file located at <>.
+2. Insert ftp credentials in the properties file located at src/resources/config.properties.
 3. Add all files to be accessed in the ftp location.
 4. Startup activeMQ with the connectors tcp://localhost:61616
 5. Go to the camellessons folder and run
