@@ -14,4 +14,9 @@ Compiling
    mvn install.
 2. You can run other maven commands to test, deploy and clean the application (maven will not be discussed here)
  
-
+Running
+-------
+1. Camel plays nic with activeMQ, so this example has been made to run in activeMQ.
+2. Startup activeMQ with the connectors tcp://localhost:61616
+3. Go to the camellessons folder and run
+   mvn exec:java -Dexec.mainClass="com.sonyatv.camel.App"
