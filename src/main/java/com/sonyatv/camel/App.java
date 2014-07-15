@@ -19,7 +19,7 @@ public class App
     {
     	try{
     		CamelContext camelContext = new DefaultCamelContext();
-    		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616?broker.persistent=false");
+    		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
     		camelContext.addComponent("jms", JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
             camelContext.addRoutes(new SimpleRouteBuilder());
             camelContext.start();
