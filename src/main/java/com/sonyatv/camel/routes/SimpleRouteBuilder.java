@@ -15,7 +15,7 @@ public class SimpleRouteBuilder extends RouteBuilder{
 		Properties prop = new Properties();
 		InputStream is = SimpleRouteBuilder.class.getClassLoader().getResourceAsStream("config.properties");
 		prop.load(is);
-		from("ftp://" + prop.getProperty("host") + "/ftp?username=" + prop.getProperty("username") + "&password=" + prop.getProperty("password"))
+		from("ftp://" + prop.getProperty("host") + "/ftp?username=" + prop.getProperty("username") + "&password=" + prop.getProperty("password") + "&idempotent=true")
 		.process(new ConsoleLogProcessor())
 		.to("jms:queue:simpleTopic");
 	}
